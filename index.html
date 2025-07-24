@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NieSiemaj.pl — Od razu do rzeczy!</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ff595e;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .box {
+      background: white;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      color: #ff595e;
+    }
+
+    .bad, .good {
+      display: flex;
+      align-items: center;
+      margin: 1rem 0;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .bad {
+      background: #ffe5e5;
+      border-left: 5px solid #ff4d4f;
+    }
+
+    .good {
+      background: #e5ffe5;
+      border-left: 5px solid #28a745;
+    }
+
+    .example-text {
+      flex-grow: 1;
+      margin-left: 1rem;
+    }
+
+    .copy-btn {
+      background: #ff595e;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .copy-btn:hover {
+      background: #e14b51;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>NieSiemaj.pl</h1>
+    <p>Nie zaczynaj rozmowy od "Siema" – przejdź od razu do rzeczy!</p>
+  </header>
+
+  <main>
+    <div class="box">
+      <h2>Problem</h2>
+      <p>
+        Pisanie tylko „Siema” albo „Hej” w komunikatorze zmusza drugą osobę do czekania,
+        aż napiszesz, o co Ci chodzi. To strata czasu dla obu stron.
+      </p>
+      <div class="bad">
+        <strong>🙁</strong>
+        <div class="example-text">Siema</div>
+      </div>
+      <p>Osoba po drugiej stronie czeka…</p>
+    </div>
+
+    <div class="box">
+      <h2>Rozwiązanie</h2>
+      <p>
+        Zamiast tego, od razu napisz, czego potrzebujesz. Uprzejmość nie ucierpi, a rozmowa będzie znacznie sprawniejsza.
+      </p>
+      <div class="good">
+        <strong>😊</strong>
+        <div class="example-text">Cześć! Mam pytanie o raport sprzedażowy z czerwca – możesz zerknąć?</div>
+        <button class="copy-btn" onclick="copyText(this)">Kopiuj</button>
+      </div>
+    </div>
+
+    <div class="box">
+      <h2>To nie jest niegrzeczne</h2>
+      <p>
+        Uprzejmość to nie tylko „Hej”. Uprzejmość to szacunek dla czasu drugiej osoby. Jasne, konkretne pytanie = szybka i skuteczna odpowiedź.
+      </p>
+    </div>
+
+    <div class="box">
+      <h2>Udostępnij dalej</h2>
+      <p>
+        Podziel się <strong>NieSiemaj.pl</strong> z osobami, które lubią zaczynać rozmowę od „Hej 🙂”.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    Pomysł zaczerpnięty z <a href="https://nohello.net" target="_blank" rel="noopener">NoHello.net</a> | Stworzone z ❤️ w Polsce
+  </footer>
+
+  <script>
+    function copyText(button) {
+      const text = button.previousElementSibling.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        button.textContent = "Skopiowano!";
+        setTimeout(() => {
+          button.textContent = "Kopiuj";
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
